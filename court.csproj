@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <ServerApi Condition="'$(ServerApi)' == '' And Exists('../openkogama-server/api/openkogama-api.csproj')">../openkogama-server/api/openkogama-api.csproj</ServerApi>
+    <ServerApi Condition="'$(ServerApi)' == '' And Exists('../openkogama-server-main/api/openkogama-api.csproj')">../openkogama-server-main/api/openkogama-api.csproj</ServerApi>
+    <ServerApi Condition="'$(ServerApi)' == ''">../openkogama-server/api/openkogama-api.csproj</ServerApi>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(ServerApi)" Private="false" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>court</AssemblyName>
+    <RootNamespace>CeaseAndDesist</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
